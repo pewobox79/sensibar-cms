@@ -491,6 +491,7 @@ export interface ApiHeaderLayoutHeaderLayout extends Struct.SingleTypeSchema {
     singularName: 'header-layout';
     pluralName: 'header-layouts';
     displayName: 'HeaderLayout';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -498,6 +499,7 @@ export interface ApiHeaderLayoutHeaderLayout extends Struct.SingleTypeSchema {
   attributes: {
     navitem: Schema.Attribute.Component<'elements.link', true>;
     logoLink: Schema.Attribute.Component<'elements.link', false>;
+    type: Schema.Attribute.Enumeration<['online', 'hybrid', 'inPerson']>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -529,10 +531,10 @@ export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
     workshop_date: Schema.Attribute.Date;
     workshopTimeStart: Schema.Attribute.Time;
     workshopTimeEnd: Schema.Attribute.Time;
-    description: Schema.Attribute.RichText;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     Link: Schema.Attribute.Component<'elements.link', false>;
-    description2: Schema.Attribute.Blocks;
+    description: Schema.Attribute.Blocks;
+    type: Schema.Attribute.Enumeration<['online', 'hybrid', 'inPerson']>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

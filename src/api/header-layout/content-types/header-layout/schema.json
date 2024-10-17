@@ -4,7 +4,8 @@
   "info": {
     "singularName": "header-layout",
     "pluralName": "header-layouts",
-    "displayName": "HeaderLayout"
+    "displayName": "HeaderLayout",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,6 +21,14 @@
       "type": "component",
       "repeatable": false,
       "component": "elements.link"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "online",
+        "hybrid",
+        "inPerson"
+      ]
     }
   }
 }
