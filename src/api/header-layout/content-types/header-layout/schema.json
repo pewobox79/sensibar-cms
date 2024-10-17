@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "header_layouts",
+  "info": {
+    "singularName": "header-layout",
+    "pluralName": "header-layouts",
+    "displayName": "HeaderLayout"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "navitem": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.link"
+    },
+    "logoLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.link"
+    }
+  }
+}

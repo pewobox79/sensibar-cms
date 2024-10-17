@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "workshops",
+  "info": {
+    "singularName": "workshop",
+    "pluralName": "workshops",
+    "displayName": "workshop",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "workshop_date": {
+      "type": "date"
+    },
+    "workshopTimeStart": {
+      "type": "time"
+    },
+    "workshopTimeEnd": {
+      "type": "time"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Link": {
+      "displayName": "Link",
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.link"
+    },
+    "description2": {
+      "type": "blocks"
+    }
+  }
+}
