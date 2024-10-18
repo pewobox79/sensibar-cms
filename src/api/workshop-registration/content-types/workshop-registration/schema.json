@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "workshop_registrations",
+  "info": {
+    "singularName": "workshop-registration",
+    "pluralName": "workshop-registrations",
+    "displayName": "WorkshopRegistration",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "person": {
+      "type": "component",
+      "repeatable": false,
+      "component": "customer-data.personal-data"
+    },
+    "contact": {
+      "type": "component",
+      "repeatable": true,
+      "component": "customer-data.contact-data"
+    },
+    "workshopId": {
+      "type": "uid"
+    },
+    "gdpr": {
+      "type": "boolean",
+      "required": false
+    },
+    "sensitiveType": {
+      "type": "enumeration",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ]
+    },
+    "participate": {
+      "type": "boolean",
+      "default": false
+    },
+    "workshops": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::workshop.workshop",
+      "mappedBy": "workshop_registration"
+    }
+  }
+}

@@ -563,6 +563,10 @@ export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
     description: Schema.Attribute.Blocks;
     type: Schema.Attribute.Enumeration<['online', 'hybrid', 'inPerson']>;
     uid: Schema.Attribute.UID<'title'>;
+    workshop_registration: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::workshop-registration.workshop-registration'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -574,6 +578,41 @@ export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::workshop.workshop'
+    >;
+  };
+}
+
+export interface ApiWorkshopRegistrationWorkshopRegistration
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'workshop_registrations';
+  info: {
+    singularName: 'workshop-registration';
+    pluralName: 'workshop-registrations';
+    displayName: 'WorkshopRegistration';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    person: Schema.Attribute.Component<'customer-data.personal-data', false>;
+    contact: Schema.Attribute.Component<'customer-data.contact-data', true>;
+    workshopId: Schema.Attribute.UID;
+    gdpr: Schema.Attribute.Boolean;
+    sensitiveType: Schema.Attribute.Enumeration<['yes', 'no', 'unknown']>;
+    participate: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    workshops: Schema.Attribute.Relation<'oneToMany', 'api::workshop.workshop'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::workshop-registration.workshop-registration'
     >;
   };
 }
@@ -956,6 +995,7 @@ declare module '@strapi/strapi' {
       'api::header-layout.header-layout': ApiHeaderLayoutHeaderLayout;
       'api::navigation.navigation': ApiNavigationNavigation;
       'api::workshop.workshop': ApiWorkshopWorkshop;
+      'api::workshop-registration.workshop-registration': ApiWorkshopRegistrationWorkshopRegistration;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
       'admin::role': AdminRole;

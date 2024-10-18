@@ -55,6 +55,12 @@
     "uid": {
       "type": "uid",
       "targetField": "title"
+    },
+    "workshop_registration": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::workshop-registration.workshop-registration",
+      "inversedBy": "workshops"
     }
   }
 }
