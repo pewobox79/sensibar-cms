@@ -515,6 +515,33 @@ export interface ApiHeaderLayoutHeaderLayout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiNavigationNavigation extends Struct.SingleTypeSchema {
+  collectionName: 'navigations';
+  info: {
+    singularName: 'navigation';
+    pluralName: 'navigations';
+    displayName: 'navigation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    navLink: Schema.Attribute.Component<'elements.link', true>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::navigation.navigation'
+    >;
+  };
+}
+
 export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
   collectionName: 'workshops';
   info: {
@@ -535,6 +562,7 @@ export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
     Link: Schema.Attribute.Component<'elements.link', false>;
     description: Schema.Attribute.Blocks;
     type: Schema.Attribute.Enumeration<['online', 'hybrid', 'inPerson']>;
+    uid: Schema.Attribute.UID<'title'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -926,6 +954,7 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::header-layout.header-layout': ApiHeaderLayoutHeaderLayout;
+      'api::navigation.navigation': ApiNavigationNavigation;
       'api::workshop.workshop': ApiWorkshopWorkshop;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;

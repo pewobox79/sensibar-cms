@@ -51,6 +51,10 @@
         "hybrid",
         "inPerson"
       ]
+    },
+    "uid": {
+      "type": "uid",
+      "targetField": "title"
     }
   }
 }
