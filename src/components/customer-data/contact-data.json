@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_customer_data_contact_data",
+  "info": {
+    "displayName": "contactData"
+  },
+  "options": {},
+  "attributes": {
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    }
+  }
+}

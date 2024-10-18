@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_customer_data_address_data",
+  "info": {
+    "displayName": "addressData"
+  },
+  "options": {},
+  "attributes": {
+    "street": {
+      "type": "string"
+    },
+    "zipCode": {
+      "type": "string"
+    },
+    "country": {
+      "type": "enumeration",
+      "enum": [
+        "Deutschland",
+        "Österrreich",
+        "Schweiz"
+      ]
+    },
+    "streetNumber": {
+      "type": "string"
+    }
+  }
+}

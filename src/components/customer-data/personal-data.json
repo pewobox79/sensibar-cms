@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_customer_data_personal_data",
+  "info": {
+    "displayName": "personalData",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "birthdate": {
+      "type": "date"
+    }
+  }
+}
