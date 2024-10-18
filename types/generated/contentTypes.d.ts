@@ -597,7 +597,6 @@ export interface ApiWorkshopRegistrationWorkshopRegistration
   attributes: {
     person: Schema.Attribute.Component<'customer-data.personal-data', false>;
     contact: Schema.Attribute.Component<'customer-data.contact-data', true>;
-    workshopId: Schema.Attribute.UID;
     gdpr: Schema.Attribute.Boolean;
     sensitiveType: Schema.Attribute.Enumeration<['yes', 'no', 'unknown']>;
     participate: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;

@@ -22,9 +22,6 @@
       "repeatable": true,
       "component": "customer-data.contact-data"
     },
-    "workshopId": {
-      "type": "uid"
-    },
     "gdpr": {
       "type": "boolean",
       "required": false
