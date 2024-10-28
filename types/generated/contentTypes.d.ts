@@ -498,7 +498,7 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
   };
   attributes: {
     workshops: Schema.Attribute.Relation<'oneToMany', 'api::workshop.workshop'>;
-    contact: Schema.Attribute.Component<'customer-data.contact-data', false>;
+    contact: Schema.Attribute.Component<'customer-data.contact-data', true>;
     personalData: Schema.Attribute.Component<
       'customer-data.personal-data',
       false
@@ -508,6 +508,11 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
     treatment_notes: Schema.Attribute.Relation<
       'oneToMany',
       'api::treatment-note.treatment-note'
+    >;
+    gdpr: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    condition_status: Schema.Attribute.Component<
+      'customer-data.physical-condition',
+      false
     >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;

@@ -20,7 +20,7 @@
     },
     "contact": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "customer-data.contact-data"
     },
     "personalData": {
@@ -42,6 +42,15 @@
       "relation": "oneToMany",
       "target": "api::treatment-note.treatment-note",
       "mappedBy": "contact"
+    },
+    "gdpr": {
+      "type": "boolean",
+      "default": false
+    },
+    "condition_status": {
+      "type": "component",
+      "repeatable": false,
+      "component": "customer-data.physical-condition"
     }
   }
 }
