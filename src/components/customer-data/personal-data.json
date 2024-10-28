@@ -14,6 +14,14 @@
     },
     "birthdate": {
       "type": "date"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female",
+        "diverse"
+      ]
     }
   }
 }

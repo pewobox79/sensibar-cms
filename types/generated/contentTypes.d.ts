@@ -485,6 +485,45 @@ export interface PluginUsersPermissionsUser
   };
 }
 
+export interface ApiContactContact extends Struct.CollectionTypeSchema {
+  collectionName: 'contacts';
+  info: {
+    singularName: 'contact';
+    pluralName: 'contacts';
+    displayName: 'contact';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    workshops: Schema.Attribute.Relation<'oneToMany', 'api::workshop.workshop'>;
+    contact: Schema.Attribute.Component<'customer-data.contact-data', false>;
+    personalData: Schema.Attribute.Component<
+      'customer-data.personal-data',
+      false
+    >;
+    address: Schema.Attribute.Component<'customer-data.address-data', false>;
+    isPatient: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    treatment_notes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::treatment-note.treatment-note'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact.contact'
+    >;
+  };
+}
+
 export interface ApiHeaderLayoutHeaderLayout extends Struct.SingleTypeSchema {
   collectionName: 'header_layouts';
   info: {
@@ -542,6 +581,42 @@ export interface ApiNavigationNavigation extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiTreatmentNoteTreatmentNote
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'treatment_notes';
+  info: {
+    singularName: 'treatment-note';
+    pluralName: 'treatment-notes';
+    displayName: 'treatment note';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    details: Schema.Attribute.Text;
+    type: Schema.Attribute.Enumeration<
+      ['Erstberatung', 'Folgeberatung', 'Testung']
+    >;
+    location: Schema.Attribute.Enumeration<
+      ['online', 'vor Ort', 'telefonisch']
+    >;
+    contact: Schema.Attribute.Relation<'manyToOne', 'api::contact.contact'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::treatment-note.treatment-note'
+    >;
+  };
+}
+
 export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
   collectionName: 'workshops';
   info: {
@@ -567,6 +642,7 @@ export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::workshop-registration.workshop-registration'
     >;
+    contact: Schema.Attribute.Relation<'manyToOne', 'api::contact.contact'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -991,8 +1067,10 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::contact.contact': ApiContactContact;
       'api::header-layout.header-layout': ApiHeaderLayoutHeaderLayout;
       'api::navigation.navigation': ApiNavigationNavigation;
+      'api::treatment-note.treatment-note': ApiTreatmentNoteTreatmentNote;
       'api::workshop.workshop': ApiWorkshopWorkshop;
       'api::workshop-registration.workshop-registration': ApiWorkshopRegistrationWorkshopRegistration;
       'admin::permission': AdminPermission;

@@ -61,6 +61,12 @@
       "relation": "manyToOne",
       "target": "api::workshop-registration.workshop-registration",
       "inversedBy": "workshops"
+    },
+    "contact": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contact.contact",
+      "inversedBy": "workshops"
     }
   }
 }

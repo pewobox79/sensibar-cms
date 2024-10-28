@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_customer_data_physical_conditions",
+  "info": {
+    "displayName": "physical_condition"
+  },
+  "options": {},
+  "attributes": {
+    "senstiveStatus": {
+      "type": "enumeration",
+      "enum": [
+        "unknown",
+        "yes",
+        "no"
+      ]
+    }
+  }
+}

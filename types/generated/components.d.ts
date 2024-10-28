@@ -14,6 +14,16 @@ export interface ElementsLink extends Struct.ComponentSchema {
   };
 }
 
+export interface CustomerDataPhysicalCondition extends Struct.ComponentSchema {
+  collectionName: 'components_customer_data_physical_conditions';
+  info: {
+    displayName: 'physical_condition';
+  };
+  attributes: {
+    senstiveStatus: Schema.Attribute.Enumeration<['unknown', 'yes', 'no']>;
+  };
+}
+
 export interface CustomerDataPersonalData extends Struct.ComponentSchema {
   collectionName: 'components_customer_data_personal_data';
   info: {
@@ -24,6 +34,7 @@ export interface CustomerDataPersonalData extends Struct.ComponentSchema {
     firstname: Schema.Attribute.String;
     lastname: Schema.Attribute.String;
     birthdate: Schema.Attribute.Date;
+    gender: Schema.Attribute.Enumeration<['male', 'female', 'diverse']>;
   };
 }
 
@@ -57,6 +68,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'elements.link': ElementsLink;
+      'customer-data.physical-condition': CustomerDataPhysicalCondition;
       'customer-data.personal-data': CustomerDataPersonalData;
       'customer-data.contact-data': CustomerDataContactData;
       'customer-data.address-data': CustomerDataAddressData;

@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contacts",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "contact",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "workshops": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::workshop.workshop",
+      "mappedBy": "contact"
+    },
+    "contact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "customer-data.contact-data"
+    },
+    "personalData": {
+      "type": "component",
+      "repeatable": false,
+      "component": "customer-data.personal-data"
+    },
+    "address": {
+      "type": "component",
+      "repeatable": false,
+      "component": "customer-data.address-data"
+    },
+    "isPatient": {
+      "type": "boolean",
+      "default": false
+    },
+    "treatment_notes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::treatment-note.treatment-note",
+      "mappedBy": "contact"
+    }
+  }
+}

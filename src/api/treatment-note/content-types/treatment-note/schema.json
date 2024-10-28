@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "treatment_notes",
+  "info": {
+    "singularName": "treatment-note",
+    "pluralName": "treatment-notes",
+    "displayName": "treatment note"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "details": {
+      "type": "text"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Erstberatung",
+        "Folgeberatung",
+        "Testung"
+      ]
+    },
+    "location": {
+      "type": "enumeration",
+      "enum": [
+        "online",
+        "vor Ort",
+        "telefonisch"
+      ]
+    },
+    "contact": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contact.contact",
+      "inversedBy": "treatment_notes"
+    }
+  }
+}
