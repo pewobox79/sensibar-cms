@@ -51,6 +51,11 @@
       "type": "component",
       "repeatable": false,
       "component": "customer-data.physical-condition"
+    },
+    "fileUploads": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.files"
     }
   }
 }

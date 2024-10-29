@@ -1,5 +1,46 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface ElementsLogo extends Struct.ComponentSchema {
+  collectionName: 'components_elements_logos';
+  info: {
+    displayName: 'logo';
+  };
+  attributes: {
+    src: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    alt: Schema.Attribute.String;
+    target: Schema.Attribute.Enumeration<['_self', '_blank']>;
+  };
+}
+
+export interface ElementsLink extends Struct.ComponentSchema {
+  collectionName: 'components_elements_links';
+  info: {
+    displayName: 'Link';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    active: Schema.Attribute.Boolean;
+    href: Schema.Attribute.String;
+    target: Schema.Attribute.Enumeration<['internal', 'external']>;
+    titleAttribute: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsFiles extends Struct.ComponentSchema {
+  collectionName: 'components_elements_files';
+  info: {
+    displayName: 'files';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    details: Schema.Attribute.Text;
+    uploads: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+  };
+}
+
 export interface CustomerDataPhysicalCondition extends Struct.ComponentSchema {
   collectionName: 'components_customer_data_physical_conditions';
   info: {
@@ -51,28 +92,16 @@ export interface CustomerDataAddressData extends Struct.ComponentSchema {
   };
 }
 
-export interface ElementsLink extends Struct.ComponentSchema {
-  collectionName: 'components_elements_links';
-  info: {
-    displayName: 'Link';
-  };
-  attributes: {
-    label: Schema.Attribute.String;
-    active: Schema.Attribute.Boolean;
-    href: Schema.Attribute.String;
-    target: Schema.Attribute.Enumeration<['internal', 'external']>;
-    titleAttribute: Schema.Attribute.String;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'elements.logo': ElementsLogo;
+      'elements.link': ElementsLink;
+      'elements.files': ElementsFiles;
       'customer-data.physical-condition': CustomerDataPhysicalCondition;
       'customer-data.personal-data': CustomerDataPersonalData;
       'customer-data.contact-data': CustomerDataContactData;
       'customer-data.address-data': CustomerDataAddressData;
-      'elements.link': ElementsLink;
     }
   }
 }

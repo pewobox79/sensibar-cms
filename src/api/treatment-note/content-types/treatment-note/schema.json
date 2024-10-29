@@ -4,7 +4,8 @@
   "info": {
     "singularName": "treatment-note",
     "pluralName": "treatment-notes",
-    "displayName": "treatment note"
+    "displayName": "treatment note",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -38,6 +39,11 @@
       "relation": "manyToOne",
       "target": "api::contact.contact",
       "inversedBy": "treatment_notes"
+    },
+    "fileItems": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.files"
     }
   }
 }

@@ -514,6 +514,7 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
       'customer-data.physical-condition',
       false
     >;
+    fileUploads: Schema.Attribute.Component<'elements.files', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -544,6 +545,7 @@ export interface ApiHeaderLayoutHeaderLayout extends Struct.SingleTypeSchema {
     navitem: Schema.Attribute.Component<'elements.link', true>;
     logoLink: Schema.Attribute.Component<'elements.link', false>;
     type: Schema.Attribute.Enumeration<['online', 'hybrid', 'inPerson']>;
+    logo: Schema.Attribute.Component<'elements.logo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -593,6 +595,7 @@ export interface ApiTreatmentNoteTreatmentNote
     singularName: 'treatment-note';
     pluralName: 'treatment-notes';
     displayName: 'treatment note';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -607,6 +610,7 @@ export interface ApiTreatmentNoteTreatmentNote
       ['online', 'vor Ort', 'telefonisch']
     >;
     contact: Schema.Attribute.Relation<'manyToOne', 'api::contact.contact'>;
+    fileItems: Schema.Attribute.Component<'elements.files', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
