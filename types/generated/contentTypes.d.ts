@@ -561,6 +561,35 @@ export interface ApiHeaderLayoutHeaderLayout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
+  collectionName: 'homepages';
+  info: {
+    singularName: 'homepage';
+    pluralName: 'homepages';
+    displayName: 'Homepage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    mainContent: Schema.Attribute.Blocks;
+    image: Schema.Attribute.Component<'elements.files', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::homepage.homepage'
+    >;
+  };
+}
+
 export interface ApiNavigationNavigation extends Struct.SingleTypeSchema {
   collectionName: 'navigations';
   info: {
@@ -1078,6 +1107,7 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::contact.contact': ApiContactContact;
       'api::header-layout.header-layout': ApiHeaderLayoutHeaderLayout;
+      'api::homepage.homepage': ApiHomepageHomepage;
       'api::navigation.navigation': ApiNavigationNavigation;
       'api::treatment-note.treatment-note': ApiTreatmentNoteTreatmentNote;
       'api::workshop.workshop': ApiWorkshopWorkshop;

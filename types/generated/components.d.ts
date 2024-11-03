@@ -81,6 +81,7 @@ export interface CustomerDataAddressData extends Struct.ComponentSchema {
   collectionName: 'components_customer_data_address_data';
   info: {
     displayName: 'addressData';
+    description: '';
   };
   attributes: {
     street: Schema.Attribute.String;
@@ -89,6 +90,7 @@ export interface CustomerDataAddressData extends Struct.ComponentSchema {
       ['Deutschland', '\u00D6sterrreich', 'Schweiz']
     >;
     streetNumber: Schema.Attribute.String;
+    city: Schema.Attribute.String;
   };
 }
 

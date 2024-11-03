@@ -1,7 +1,8 @@
 {
   "collectionName": "components_customer_data_address_data",
   "info": {
-    "displayName": "addressData"
+    "displayName": "addressData",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -20,6 +21,9 @@
       ]
     },
     "streetNumber": {
+      "type": "string"
+    },
+    "city": {
       "type": "string"
     }
   }
