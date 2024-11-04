@@ -485,6 +485,34 @@ export interface PluginUsersPermissionsUser
   };
 }
 
+export interface ApiBasicPageBasicPage extends Struct.CollectionTypeSchema {
+  collectionName: 'basic_pages';
+  info: {
+    singularName: 'basic-page';
+    pluralName: 'basic-pages';
+    displayName: 'basic page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    mainContent: Schema.Attribute.Blocks;
+    title: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::basic-page.basic-page'
+    >;
+  };
+}
+
 export interface ApiContactContact extends Struct.CollectionTypeSchema {
   collectionName: 'contacts';
   info: {
@@ -1105,6 +1133,7 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::basic-page.basic-page': ApiBasicPageBasicPage;
       'api::contact.contact': ApiContactContact;
       'api::header-layout.header-layout': ApiHeaderLayoutHeaderLayout;
       'api::homepage.homepage': ApiHomepageHomepage;

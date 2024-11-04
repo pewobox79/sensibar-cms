@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "basic_pages",
+  "info": {
+    "singularName": "basic-page",
+    "pluralName": "basic-pages",
+    "displayName": "basic page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "mainContent": {
+      "type": "blocks"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}
