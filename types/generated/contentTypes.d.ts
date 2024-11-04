@@ -491,6 +491,7 @@ export interface ApiBasicPageBasicPage extends Struct.CollectionTypeSchema {
     singularName: 'basic-page';
     pluralName: 'basic-pages';
     displayName: 'basic page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -498,6 +499,7 @@ export interface ApiBasicPageBasicPage extends Struct.CollectionTypeSchema {
   attributes: {
     mainContent: Schema.Attribute.Blocks;
     title: Schema.Attribute.String;
+    slug: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -525,7 +527,6 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    workshops: Schema.Attribute.Relation<'oneToMany', 'api::workshop.workshop'>;
     contact: Schema.Attribute.Component<'customer-data.contact-data', true>;
     personalData: Schema.Attribute.Component<
       'customer-data.personal-data',
@@ -543,6 +544,7 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
       false
     >;
     fileUploads: Schema.Attribute.Component<'elements.files', false>;
+    workshop: Schema.Attribute.Relation<'manyToOne', 'api::workshop.workshop'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -708,7 +710,7 @@ export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::workshop-registration.workshop-registration'
     >;
-    contact: Schema.Attribute.Relation<'manyToOne', 'api::contact.contact'>;
+    contacts: Schema.Attribute.Relation<'oneToMany', 'api::contact.contact'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

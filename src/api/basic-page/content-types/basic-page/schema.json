@@ -4,7 +4,8 @@
   "info": {
     "singularName": "basic-page",
     "pluralName": "basic-pages",
-    "displayName": "basic page"
+    "displayName": "basic page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,6 +16,9 @@
       "type": "blocks"
     },
     "title": {
+      "type": "string"
+    },
+    "slug": {
       "type": "string"
     }
   }
