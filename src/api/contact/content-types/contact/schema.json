@@ -51,9 +51,9 @@
       "repeatable": false,
       "component": "elements.files"
     },
-    "workshop": {
+    "workshops": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::workshop.workshop",
       "inversedBy": "contacts"
     }

@@ -64,9 +64,9 @@
     },
     "contacts": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::contact.contact",
-      "mappedBy": "workshop"
+      "mappedBy": "workshops"
     }
   }
 }

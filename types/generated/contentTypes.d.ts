@@ -544,7 +544,10 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
       false
     >;
     fileUploads: Schema.Attribute.Component<'elements.files', false>;
-    workshop: Schema.Attribute.Relation<'manyToOne', 'api::workshop.workshop'>;
+    workshops: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::workshop.workshop'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -710,7 +713,7 @@ export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::workshop-registration.workshop-registration'
     >;
-    contacts: Schema.Attribute.Relation<'oneToMany', 'api::contact.contact'>;
+    contacts: Schema.Attribute.Relation<'manyToMany', 'api::contact.contact'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
