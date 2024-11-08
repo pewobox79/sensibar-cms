@@ -7,12 +7,10 @@
   "options": {},
   "attributes": {
     "street": {
-      "type": "string",
-      "default": "unbekannt"
+      "type": "string"
     },
     "zipCode": {
-      "type": "string",
-      "default": "00000"
+      "type": "string"
     },
     "country": {
       "type": "enumeration",
@@ -24,12 +22,10 @@
       "default": "Deutschland"
     },
     "streetNumber": {
-      "type": "string",
-      "default": "12345"
+      "type": "string"
     },
     "city": {
-      "type": "string",
-      "default": "Stadtname"
+      "type": "string"
     }
   }
 }
