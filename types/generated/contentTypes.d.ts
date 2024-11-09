@@ -705,7 +705,7 @@ export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
     workshopTimeStart: Schema.Attribute.Time;
     workshopTimeEnd: Schema.Attribute.Time;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Link: Schema.Attribute.Component<'elements.link', false>;
+    link: Schema.Attribute.Component<'elements.link', false>;
     description: Schema.Attribute.Blocks;
     type: Schema.Attribute.Enumeration<['online', 'hybrid', 'inPerson']>;
     uid: Schema.Attribute.UID<'title'>;
@@ -714,6 +714,10 @@ export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
       'api::workshop-registration.workshop-registration'
     >;
     contacts: Schema.Attribute.Relation<'manyToMany', 'api::contact.contact'>;
+    location: Schema.Attribute.Component<'customer-data.address-data', false>;
+    ws_status: Schema.Attribute.Enumeration<
+      ['planned', 'cancelled', 'confirmed']
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

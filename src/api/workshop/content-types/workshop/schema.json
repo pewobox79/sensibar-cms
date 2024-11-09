@@ -35,7 +35,7 @@
         "audios"
       ]
     },
-    "Link": {
+    "link": {
       "displayName": "Link",
       "type": "component",
       "repeatable": false,
@@ -67,6 +67,19 @@
       "relation": "manyToMany",
       "target": "api::contact.contact",
       "mappedBy": "workshops"
+    },
+    "location": {
+      "type": "component",
+      "repeatable": false,
+      "component": "customer-data.address-data"
+    },
+    "ws_status": {
+      "type": "enumeration",
+      "enum": [
+        "planned",
+        "cancelled",
+        "confirmed"
+      ]
     }
   }
 }
