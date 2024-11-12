@@ -48,7 +48,7 @@
     },
     "fileUploads": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "elements.files"
     },
     "workshops": {
@@ -56,6 +56,12 @@
       "relation": "manyToMany",
       "target": "api::workshop.workshop",
       "inversedBy": "contacts"
+    },
+    "files_uploads": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::files-upload.files-upload",
+      "mappedBy": "contact"
     }
   }
 }

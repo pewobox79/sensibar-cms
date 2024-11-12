@@ -543,10 +543,14 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
       'customer-data.physical-condition',
       false
     >;
-    fileUploads: Schema.Attribute.Component<'elements.files', false>;
+    fileUploads: Schema.Attribute.Component<'elements.files', true>;
     workshops: Schema.Attribute.Relation<
       'manyToMany',
       'api::workshop.workshop'
+    >;
+    files_uploads: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::files-upload.files-upload'
     >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -559,6 +563,40 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::contact.contact'
+    >;
+  };
+}
+
+export interface ApiFilesUploadFilesUpload extends Struct.CollectionTypeSchema {
+  collectionName: 'files_uploads';
+  info: {
+    singularName: 'files-upload';
+    pluralName: 'files-uploads';
+    displayName: 'filesUpload';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    fileUpload: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    contact: Schema.Attribute.Relation<'manyToOne', 'api::contact.contact'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::files-upload.files-upload'
     >;
   };
 }
@@ -1144,6 +1182,7 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::basic-page.basic-page': ApiBasicPageBasicPage;
       'api::contact.contact': ApiContactContact;
+      'api::files-upload.files-upload': ApiFilesUploadFilesUpload;
       'api::header-layout.header-layout': ApiHeaderLayoutHeaderLayout;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::navigation.navigation': ApiNavigationNavigation;
