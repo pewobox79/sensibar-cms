@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "questioning_pages",
+  "info": {
+    "singularName": "questioning-page",
+    "pluralName": "questioning-pages",
+    "displayName": "QuestioningPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}

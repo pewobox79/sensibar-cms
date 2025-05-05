@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "testing_questions",
+  "info": {
+    "singularName": "testing-question",
+    "pluralName": "testing-questions",
+    "displayName": "TestingQuestion",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "boolean"
+    },
+    "kategory": {
+      "type": "enumeration",
+      "enum": [
+        "emotionale",
+        "sonsorische",
+        "soziale",
+        "kognitive"
+      ]
+    }
+  }
+}

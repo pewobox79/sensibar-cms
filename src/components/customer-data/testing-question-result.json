@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_customer_data_testing_question_results",
+  "info": {
+    "displayName": "TestingQuestionResult",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "resultDataRaw": {
+      "type": "json"
+    },
+    "resultPoints": {
+      "type": "integer"
+    }
+  }
+}

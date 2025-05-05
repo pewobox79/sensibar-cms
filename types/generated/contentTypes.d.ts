@@ -485,6 +485,37 @@ export interface PluginUsersPermissionsUser
   };
 }
 
+export interface ApiAnswersRatingAnswersRating
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'answers_ratings';
+  info: {
+    singularName: 'answers-rating';
+    pluralName: 'answers-ratings';
+    displayName: 'answersRating';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.Blocks;
+    lowestRate: Schema.Attribute.Integer;
+    highestRate: Schema.Attribute.Integer;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::answers-rating.answers-rating'
+    >;
+  };
+}
+
 export interface ApiBasicPageBasicPage extends Struct.CollectionTypeSchema {
   collectionName: 'basic_pages';
   info: {
@@ -512,6 +543,32 @@ export interface ApiBasicPageBasicPage extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::basic-page.basic-page'
     >;
+  };
+}
+
+export interface ApiCoachCoach extends Struct.SingleTypeSchema {
+  collectionName: 'coaches';
+  info: {
+    singularName: 'coach';
+    pluralName: 'coaches';
+    displayName: 'Coach';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+    aboutme: Schema.Attribute.Blocks;
+    headshot: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::coach.coach'>;
   };
 }
 
@@ -551,6 +608,10 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
     files_uploads: Schema.Attribute.Relation<
       'oneToMany',
       'api::files-upload.files-upload'
+    >;
+    resultData: Schema.Attribute.Component<
+      'customer-data.testing-question-result',
+      true
     >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -684,6 +745,68 @@ export interface ApiNavigationNavigation extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::navigation.navigation'
+    >;
+  };
+}
+
+export interface ApiQuestioningPageQuestioningPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'questioning_pages';
+  info: {
+    singularName: 'questioning-page';
+    pluralName: 'questioning-pages';
+    displayName: 'QuestioningPage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::questioning-page.questioning-page'
+    >;
+  };
+}
+
+export interface ApiTestingQuestionTestingQuestion
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'testing_questions';
+  info: {
+    singularName: 'testing-question';
+    pluralName: 'testing-questions';
+    displayName: 'TestingQuestion';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    answer: Schema.Attribute.Boolean;
+    kategory: Schema.Attribute.Enumeration<
+      ['emotionale', 'sonsorische', 'soziale', 'kognitive']
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testing-question.testing-question'
     >;
   };
 }
@@ -1180,12 +1303,16 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::answers-rating.answers-rating': ApiAnswersRatingAnswersRating;
       'api::basic-page.basic-page': ApiBasicPageBasicPage;
+      'api::coach.coach': ApiCoachCoach;
       'api::contact.contact': ApiContactContact;
       'api::files-upload.files-upload': ApiFilesUploadFilesUpload;
       'api::header-layout.header-layout': ApiHeaderLayoutHeaderLayout;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::navigation.navigation': ApiNavigationNavigation;
+      'api::questioning-page.questioning-page': ApiQuestioningPageQuestioningPage;
+      'api::testing-question.testing-question': ApiTestingQuestionTestingQuestion;
       'api::treatment-note.treatment-note': ApiTreatmentNoteTreatmentNote;
       'api::workshop.workshop': ApiWorkshopWorkshop;
       'api::workshop-registration.workshop-registration': ApiWorkshopRegistrationWorkshopRegistration;

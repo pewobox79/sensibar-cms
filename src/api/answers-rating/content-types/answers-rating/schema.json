@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "answers_ratings",
+  "info": {
+    "singularName": "answers-rating",
+    "pluralName": "answers-ratings",
+    "displayName": "answersRating"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "lowestRate": {
+      "type": "integer"
+    },
+    "highestRate": {
+      "type": "integer"
+    }
+  }
+}

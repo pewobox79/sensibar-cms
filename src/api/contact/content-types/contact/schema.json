@@ -62,6 +62,11 @@
       "relation": "oneToMany",
       "target": "api::files-upload.files-upload",
       "mappedBy": "contact"
+    },
+    "resultData": {
+      "type": "component",
+      "repeatable": true,
+      "component": "customer-data.testing-question-result"
     }
   }
 }
