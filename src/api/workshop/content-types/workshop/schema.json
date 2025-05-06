@@ -80,6 +80,11 @@
         "cancelled",
         "confirmed"
       ]
+    },
+    "seoData": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.seo"
     }
   }
 }
