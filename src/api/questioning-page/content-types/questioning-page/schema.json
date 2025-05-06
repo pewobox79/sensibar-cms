@@ -4,7 +4,8 @@
   "info": {
     "singularName": "questioning-page",
     "pluralName": "questioning-pages",
-    "displayName": "QuestioningPage"
+    "displayName": "QuestioningPage",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +17,11 @@
     },
     "description": {
       "type": "blocks"
+    },
+    "seoData": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.seo"
     }
   }
 }

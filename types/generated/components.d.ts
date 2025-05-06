@@ -1,5 +1,17 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface ElementsSeo extends Struct.ComponentSchema {
+  collectionName: 'components_elements_seos';
+  info: {
+    displayName: 'seo';
+  };
+  attributes: {
+    metaTitle: Schema.Attribute.String;
+    metaDescription: Schema.Attribute.Text;
+    metaImg: Schema.Attribute.String;
+  };
+}
+
 export interface ElementsLogo extends Struct.ComponentSchema {
   collectionName: 'components_elements_logos';
   info: {
@@ -111,6 +123,7 @@ export interface CustomerDataAddressData extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'elements.seo': ElementsSeo;
       'elements.logo': ElementsLogo;
       'elements.link': ElementsLink;
       'elements.files': ElementsFiles;

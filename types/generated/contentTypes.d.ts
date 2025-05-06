@@ -756,6 +756,7 @@ export interface ApiQuestioningPageQuestioningPage
     singularName: 'questioning-page';
     pluralName: 'questioning-pages';
     displayName: 'QuestioningPage';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -763,6 +764,7 @@ export interface ApiQuestioningPageQuestioningPage
   attributes: {
     title: Schema.Attribute.String;
     description: Schema.Attribute.Blocks;
+    seoData: Schema.Attribute.Component<'elements.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
