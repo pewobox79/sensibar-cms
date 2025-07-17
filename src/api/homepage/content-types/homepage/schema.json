@@ -4,7 +4,8 @@
   "info": {
     "singularName": "homepage",
     "pluralName": "homepages",
-    "displayName": "Homepage"
+    "displayName": "Homepage",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,10 +18,25 @@
     "mainContent": {
       "type": "blocks"
     },
-    "image": {
+    "Jumbotron": {
       "type": "component",
       "repeatable": false,
-      "component": "elements.files"
+      "component": "elements.jumbotron"
+    },
+    "seoData": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.seo"
+    },
+    "textBlock": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.text-block"
+    },
+    "services": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.grid-section"
     }
   }
 }

@@ -1,5 +1,16 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface ElementsTextBlock extends Struct.ComponentSchema {
+  collectionName: 'components_elements_text_blocks';
+  info: {
+    displayName: 'TextBlock';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    body: Schema.Attribute.Blocks;
+  };
+}
+
 export interface ElementsSeo extends Struct.ComponentSchema {
   collectionName: 'components_elements_seos';
   info: {
@@ -35,6 +46,43 @@ export interface ElementsLink extends Struct.ComponentSchema {
     href: Schema.Attribute.String;
     target: Schema.Attribute.Enumeration<['internal', 'external']>;
     titleAttribute: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsJumbotron extends Struct.ComponentSchema {
+  collectionName: 'components_elements_jumbotrons';
+  info: {
+    displayName: 'Jumbotron';
+  };
+  attributes: {
+    text: Schema.Attribute.Blocks;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface ElementsGridSection extends Struct.ComponentSchema {
+  collectionName: 'components_elements_grid_sections';
+  info: {
+    displayName: 'gridSection';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    item: Schema.Attribute.Component<'elements.grid-item', true>;
+    description: Schema.Attribute.Blocks;
+  };
+}
+
+export interface ElementsGridItem extends Struct.ComponentSchema {
+  collectionName: 'components_elements_grid_items';
+  info: {
+    displayName: 'gridItem';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.Blocks;
+    active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
   };
 }
 
@@ -123,9 +171,13 @@ export interface CustomerDataAddressData extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'elements.text-block': ElementsTextBlock;
       'elements.seo': ElementsSeo;
       'elements.logo': ElementsLogo;
       'elements.link': ElementsLink;
+      'elements.jumbotron': ElementsJumbotron;
+      'elements.grid-section': ElementsGridSection;
+      'elements.grid-item': ElementsGridItem;
       'elements.files': ElementsFiles;
       'customer-data.testing-question-result': CustomerDataTestingQuestionResult;
       'customer-data.physical-condition': CustomerDataPhysicalCondition;

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_elements_grid_sections",
+  "info": {
+    "displayName": "gridSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "item": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.grid-item"
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}

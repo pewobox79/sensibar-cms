@@ -699,6 +699,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     singularName: 'homepage';
     pluralName: 'homepages';
     displayName: 'Homepage';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -706,7 +707,10 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   attributes: {
     title: Schema.Attribute.String;
     mainContent: Schema.Attribute.Blocks;
-    image: Schema.Attribute.Component<'elements.files', false>;
+    Jumbotron: Schema.Attribute.Component<'elements.jumbotron', false>;
+    seoData: Schema.Attribute.Component<'elements.seo', false>;
+    textBlock: Schema.Attribute.Component<'elements.text-block', false>;
+    services: Schema.Attribute.Component<'elements.grid-section', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
