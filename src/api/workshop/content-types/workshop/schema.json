@@ -84,7 +84,8 @@
     "seoData": {
       "type": "component",
       "repeatable": false,
-      "component": "elements.seo"
+      "component": "elements.seo",
+      "required": true
     }
   }
 }
