@@ -85,7 +85,7 @@
       "type": "component",
       "repeatable": false,
       "component": "elements.seo",
-      "required": true
+      "required": false
     }
   }
 }

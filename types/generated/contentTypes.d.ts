@@ -885,8 +885,7 @@ export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
     ws_status: Schema.Attribute.Enumeration<
       ['planned', 'cancelled', 'confirmed']
     >;
-    seoData: Schema.Attribute.Component<'elements.seo', false> &
-      Schema.Attribute.Required;
+    seoData: Schema.Attribute.Component<'elements.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
