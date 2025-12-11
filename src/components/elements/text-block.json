@@ -16,6 +16,9 @@
       "type": "component",
       "repeatable": false,
       "component": "elements.color-source"
+    },
+    "hashId": {
+      "type": "string"
     }
   }
 }

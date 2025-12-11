@@ -1,0 +1,56 @@
+{
+  "collectionName": "components_components_quote_sections",
+  "info": {
+    "displayName": "quoteSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": false
+    },
+    "hasBgImage": {
+      "type": "boolean",
+      "default": true
+    },
+    "image": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "hasBgImage"
+            },
+            true
+          ]
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "bgColor": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "hasBgImage"
+            },
+            false
+          ]
+        }
+      },
+      "component": "elements.color-source",
+      "repeatable": false
+    }
+  }
+}

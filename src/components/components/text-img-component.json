@@ -38,6 +38,10 @@
     "textLeft": {
       "type": "boolean",
       "default": true
+    },
+    "hashId": {
+      "type": "string",
+      "required": false
     }
   }
 }
