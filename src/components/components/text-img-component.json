@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_components_text_img_components",
+  "info": {
+    "displayName": "textImgComponent",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.text-block"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "internalName": {
+      "type": "string"
+    },
+    "link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.link"
+    },
+    "bgColor": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.color-source"
+    },
+    "textLeft": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

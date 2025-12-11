@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_elements_color_sources",
+  "info": {
+    "displayName": "colorSource"
+  },
+  "options": {},
+  "attributes": {
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "darkGrey",
+        "lightBeige",
+        "beige",
+        "white"
+      ]
+    }
+  }
+}

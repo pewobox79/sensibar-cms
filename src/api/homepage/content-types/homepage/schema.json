@@ -15,28 +15,19 @@
     "title": {
       "type": "string"
     },
-    "mainContent": {
-      "type": "blocks"
-    },
-    "Jumbotron": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.jumbotron"
-    },
     "seoData": {
       "type": "component",
       "repeatable": false,
       "component": "elements.seo"
     },
-    "textBlock": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.text-block"
-    },
-    "services": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.grid-section"
+    "items": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.text-block",
+        "components.text-img-component",
+        "elements.grid-section",
+        "elements.jumbotron"
+      ]
     }
   }
 }

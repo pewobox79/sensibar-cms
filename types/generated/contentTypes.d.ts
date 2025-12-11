@@ -706,11 +706,15 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   };
   attributes: {
     title: Schema.Attribute.String;
-    mainContent: Schema.Attribute.Blocks;
-    Jumbotron: Schema.Attribute.Component<'elements.jumbotron', false>;
     seoData: Schema.Attribute.Component<'elements.seo', false>;
-    textBlock: Schema.Attribute.Component<'elements.text-block', false>;
-    services: Schema.Attribute.Component<'elements.grid-section', false>;
+    items: Schema.Attribute.DynamicZone<
+      [
+        'elements.text-block',
+        'components.text-img-component',
+        'elements.grid-section',
+        'elements.jumbotron',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

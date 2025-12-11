@@ -14,8 +14,10 @@
       "repeatable": true,
       "component": "elements.grid-item"
     },
-    "description": {
-      "type": "blocks"
+    "bgColor": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.color-source"
     }
   }
 }
