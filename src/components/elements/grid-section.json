@@ -11,13 +11,13 @@
     },
     "item": {
       "type": "component",
-      "repeatable": true,
-      "component": "elements.grid-item"
+      "component": "elements.grid-item",
+      "repeatable": true
     },
     "bgColor": {
       "type": "component",
-      "repeatable": false,
-      "component": "elements.color-source"
+      "component": "elements.color-source",
+      "repeatable": false
     },
     "hashId": {
       "type": "string"

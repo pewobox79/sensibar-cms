@@ -5,6 +5,9 @@
   },
   "options": {},
   "attributes": {
+    "hashId": {
+      "type": "string"
+    },
     "title": {
       "type": "string"
     },

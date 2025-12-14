@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_components_text_img_grids",
+  "info": {
+    "displayName": "TextImgGrid"
+  },
+  "options": {},
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "hashId": {
+      "type": "string"
+    },
+    "leftTextBlock": {
+      "type": "blocks"
+    },
+    "rightTextBlock": {
+      "type": "blocks"
+    },
+    "button": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": false
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "bgColor": {
+      "type": "component",
+      "component": "elements.color-source",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

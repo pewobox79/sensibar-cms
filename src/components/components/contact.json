@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_components_contacts",
+  "info": {
+    "displayName": "contact"
+  },
+  "options": {},
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "hashId": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "contactData": {
+      "type": "blocks"
+    },
+    "socialLinks": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": true
+    },
+    "legalLinks": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": true
+    },
+    "bgColor": {
+      "type": "component",
+      "component": "elements.color-source",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

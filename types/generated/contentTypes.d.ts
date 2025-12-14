@@ -665,6 +665,9 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
         'components.text-img-component',
         'elements.grid-section',
         'elements.jumbotron',
+        'components.quote-section',
+        'components.text-img-grid',
+        'components.contact',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

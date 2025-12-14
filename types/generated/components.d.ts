@@ -1,5 +1,21 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ComponentsContact extends Struct.ComponentSchema {
+  collectionName: 'components_components_contacts';
+  info: {
+    displayName: 'contact';
+  };
+  attributes: {
+    bgColor: Schema.Attribute.Component<'elements.color-source', false>;
+    contactData: Schema.Attribute.Blocks;
+    hashId: Schema.Attribute.String;
+    internalName: Schema.Attribute.String;
+    legalLinks: Schema.Attribute.Component<'elements.link', true>;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    socialLinks: Schema.Attribute.Component<'elements.link', true>;
+  };
+}
+
 export interface ComponentsQuoteSection extends Struct.ComponentSchema {
   collectionName: 'components_components_quote_sections';
   info: {
@@ -9,6 +25,7 @@ export interface ComponentsQuoteSection extends Struct.ComponentSchema {
     bgColor: Schema.Attribute.Component<'elements.color-source', false>;
     button: Schema.Attribute.Component<'elements.link', false>;
     hasBgImage: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    hashId: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     title: Schema.Attribute.String;
   };
@@ -28,6 +45,25 @@ export interface ComponentsTextImgComponent extends Struct.ComponentSchema {
     link: Schema.Attribute.Component<'elements.link', false>;
     text: Schema.Attribute.Component<'elements.text-block', false>;
     textLeft: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+  };
+}
+
+export interface ComponentsTextImgGrid extends Struct.ComponentSchema {
+  collectionName: 'components_components_text_img_grids';
+  info: {
+    displayName: 'TextImgGrid';
+  };
+  attributes: {
+    bgColor: Schema.Attribute.Component<'elements.color-source', false>;
+    button: Schema.Attribute.Component<'elements.link', false>;
+    hashId: Schema.Attribute.String;
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    internalName: Schema.Attribute.String;
+    leftTextBlock: Schema.Attribute.Blocks;
+    rightTextBlock: Schema.Attribute.Blocks;
   };
 }
 
@@ -134,6 +170,7 @@ export interface ElementsGridItem extends Struct.ComponentSchema {
   attributes: {
     active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     description: Schema.Attribute.Blocks;
+    link: Schema.Attribute.Component<'elements.link', false>;
     title: Schema.Attribute.String;
   };
 }
@@ -220,8 +257,10 @@ export interface ElementsTextBlock extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'components.contact': ComponentsContact;
       'components.quote-section': ComponentsQuoteSection;
       'components.text-img-component': ComponentsTextImgComponent;
+      'components.text-img-grid': ComponentsTextImgGrid;
       'customer-data.address-data': CustomerDataAddressData;
       'customer-data.contact-data': CustomerDataContactData;
       'customer-data.personal-data': CustomerDataPersonalData;
