@@ -541,6 +541,10 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    event_tickets: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::event-ticket.event-ticket'
+    >;
     files_uploads: Schema.Attribute.Relation<
       'oneToMany',
       'api::files-upload.files-upload'
@@ -574,6 +578,44 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::workshop.workshop'
     >;
+  };
+}
+
+export interface ApiEventTicketEventTicket extends Struct.CollectionTypeSchema {
+  collectionName: 'event_tickets';
+  info: {
+    displayName: 'eventTicket';
+    pluralName: 'event-tickets';
+    singularName: 'event-ticket';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contact: Schema.Attribute.Relation<'manyToOne', 'api::contact.contact'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::event-ticket.event-ticket'
+    > &
+      Schema.Attribute.Private;
+    paymentDetails: Schema.Attribute.Component<
+      'elements.payment-details',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    redeemStatus: Schema.Attribute.Component<
+      'elements.event-redeem-details',
+      false
+    >;
+    ticketId: Schema.Attribute.String & Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    workshop: Schema.Attribute.Relation<'manyToOne', 'api::workshop.workshop'>;
   };
 }
 
@@ -668,6 +710,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
         'components.quote-section',
         'components.text-img-grid',
         'components.contact',
+        'components.kontakt-formular',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -870,6 +913,10 @@ export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Blocks;
+    event_tickets: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::event-ticket.event-ticket'
+    >;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     link: Schema.Attribute.Component<'elements.link', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1414,6 +1461,7 @@ declare module '@strapi/strapi' {
       'api::basic-page.basic-page': ApiBasicPageBasicPage;
       'api::coach.coach': ApiCoachCoach;
       'api::contact.contact': ApiContactContact;
+      'api::event-ticket.event-ticket': ApiEventTicketEventTicket;
       'api::files-upload.files-upload': ApiFilesUploadFilesUpload;
       'api::header-layout.header-layout': ApiHeaderLayoutHeaderLayout;
       'api::homepage.homepage': ApiHomepageHomepage;

@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event_tickets",
+  "info": {
+    "singularName": "event-ticket",
+    "pluralName": "event-tickets",
+    "displayName": "eventTicket"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ticketId": {
+      "type": "string",
+      "unique": true
+    },
+    "contact": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contact.contact",
+      "inversedBy": "event_tickets"
+    },
+    "workshop": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::workshop.workshop",
+      "inversedBy": "event_tickets"
+    },
+    "paymentDetails": {
+      "type": "component",
+      "component": "elements.payment-details",
+      "repeatable": false
+    },
+    "redeemStatus": {
+      "type": "component",
+      "component": "elements.event-redeem-details",
+      "repeatable": false
+    }
+  }
+}

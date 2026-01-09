@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_elements_event_redeem_details",
+  "info": {
+    "displayName": "eventRedeemDetails"
+  },
+  "options": {},
+  "attributes": {
+    "isRedeemed": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}

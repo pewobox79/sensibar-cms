@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_elements_payment_details",
+  "info": {
+    "displayName": "paymentDetails"
+  },
+  "options": {},
+  "attributes": {
+    "transactionId": {
+      "type": "string"
+    },
+    "paymentStatus": {
+      "type": "enumeration",
+      "enum": [
+        "paid",
+        "pending",
+        "failed"
+      ]
+    },
+    "paymentMethod": {
+      "type": "enumeration",
+      "enum": [
+        "paypal",
+        "creditcard",
+        "cash"
+      ]
+    },
+    "paidAt": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

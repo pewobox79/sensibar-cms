@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_components_kontakt_formulars",
+  "info": {
+    "displayName": "kontaktFormular"
+  },
+  "options": {},
+  "attributes": {
+    "internalName": {
+      "type": "string",
+      "default": "this field will autogenerate the contactForm"
+    }
+  },
+  "config": {}
+}

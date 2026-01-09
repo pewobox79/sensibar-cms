@@ -16,6 +16,17 @@ export interface ComponentsContact extends Struct.ComponentSchema {
   };
 }
 
+export interface ComponentsKontaktFormular extends Struct.ComponentSchema {
+  collectionName: 'components_components_kontakt_formulars';
+  info: {
+    displayName: 'kontaktFormular';
+  };
+  attributes: {
+    internalName: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'this field will autogenerate the contactForm'>;
+  };
+}
+
 export interface ComponentsQuoteSection extends Struct.ComponentSchema {
   collectionName: 'components_components_quote_sections';
   info: {
@@ -146,6 +157,16 @@ export interface ElementsColorSource extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsEventRedeemDetails extends Struct.ComponentSchema {
+  collectionName: 'components_elements_event_redeem_details';
+  info: {
+    displayName: 'eventRedeemDetails';
+  };
+  attributes: {
+    isRedeemed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
 export interface ElementsFiles extends Struct.ComponentSchema {
   collectionName: 'components_elements_files';
   info: {
@@ -229,6 +250,21 @@ export interface ElementsLogo extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsPaymentDetails extends Struct.ComponentSchema {
+  collectionName: 'components_elements_payment_details';
+  info: {
+    displayName: 'paymentDetails';
+  };
+  attributes: {
+    paidAt: Schema.Attribute.String;
+    paymentMethod: Schema.Attribute.Enumeration<
+      ['paypal', 'creditcard', 'cash']
+    >;
+    paymentStatus: Schema.Attribute.Enumeration<['paid', 'pending', 'failed']>;
+    transactionId: Schema.Attribute.String;
+  };
+}
+
 export interface ElementsSeo extends Struct.ComponentSchema {
   collectionName: 'components_elements_seos';
   info: {
@@ -259,6 +295,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'components.contact': ComponentsContact;
+      'components.kontakt-formular': ComponentsKontaktFormular;
       'components.quote-section': ComponentsQuoteSection;
       'components.text-img-component': ComponentsTextImgComponent;
       'components.text-img-grid': ComponentsTextImgGrid;
@@ -268,12 +305,14 @@ declare module '@strapi/strapi' {
       'customer-data.physical-condition': CustomerDataPhysicalCondition;
       'customer-data.testing-question-result': CustomerDataTestingQuestionResult;
       'elements.color-source': ElementsColorSource;
+      'elements.event-redeem-details': ElementsEventRedeemDetails;
       'elements.files': ElementsFiles;
       'elements.grid-item': ElementsGridItem;
       'elements.grid-section': ElementsGridSection;
       'elements.jumbotron': ElementsJumbotron;
       'elements.link': ElementsLink;
       'elements.logo': ElementsLogo;
+      'elements.payment-details': ElementsPaymentDetails;
       'elements.seo': ElementsSeo;
       'elements.text-block': ElementsTextBlock;
     }

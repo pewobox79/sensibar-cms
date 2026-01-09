@@ -29,7 +29,8 @@
         "elements.jumbotron",
         "components.quote-section",
         "components.text-img-grid",
-        "components.contact"
+        "components.contact",
+        "components.kontakt-formular"
       ]
     }
   }

@@ -36,10 +36,9 @@
       ]
     },
     "link": {
-      "displayName": "Link",
       "type": "component",
-      "repeatable": false,
-      "component": "elements.link"
+      "component": "elements.link",
+      "repeatable": false
     },
     "description": {
       "type": "blocks"
@@ -70,8 +69,8 @@
     },
     "location": {
       "type": "component",
-      "repeatable": false,
-      "component": "customer-data.address-data"
+      "component": "customer-data.address-data",
+      "repeatable": false
     },
     "ws_status": {
       "type": "enumeration",
@@ -83,9 +82,15 @@
     },
     "seoData": {
       "type": "component",
-      "repeatable": false,
       "component": "elements.seo",
+      "repeatable": false,
       "required": false
+    },
+    "event_tickets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event-ticket.event-ticket",
+      "mappedBy": "workshop"
     }
   }
 }

@@ -14,18 +14,18 @@
   "attributes": {
     "contact": {
       "type": "component",
-      "repeatable": true,
-      "component": "customer-data.contact-data"
+      "component": "customer-data.contact-data",
+      "repeatable": true
     },
     "personalData": {
       "type": "component",
-      "repeatable": false,
-      "component": "customer-data.personal-data"
+      "component": "customer-data.personal-data",
+      "repeatable": false
     },
     "address": {
       "type": "component",
-      "repeatable": false,
-      "component": "customer-data.address-data"
+      "component": "customer-data.address-data",
+      "repeatable": false
     },
     "isPatient": {
       "type": "boolean",
@@ -43,13 +43,13 @@
     },
     "condition_status": {
       "type": "component",
-      "repeatable": false,
-      "component": "customer-data.physical-condition"
+      "component": "customer-data.physical-condition",
+      "repeatable": false
     },
     "fileUploads": {
       "type": "component",
-      "repeatable": true,
-      "component": "elements.files"
+      "component": "elements.files",
+      "repeatable": true
     },
     "workshops": {
       "type": "relation",
@@ -65,8 +65,14 @@
     },
     "resultData": {
       "type": "component",
-      "repeatable": true,
-      "component": "customer-data.testing-question-result"
+      "component": "customer-data.testing-question-result",
+      "repeatable": true
+    },
+    "event_tickets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event-ticket.event-ticket",
+      "mappedBy": "contact"
     }
   }
 }
