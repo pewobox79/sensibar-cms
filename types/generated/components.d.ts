@@ -191,6 +191,7 @@ export interface ElementsGridItem extends Struct.ComponentSchema {
   attributes: {
     active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     description: Schema.Attribute.Blocks;
+    image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.Component<'elements.link', false>;
     title: Schema.Attribute.String;
   };

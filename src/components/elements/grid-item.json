@@ -20,6 +20,13 @@
       "type": "component",
       "component": "elements.link",
       "repeatable": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
