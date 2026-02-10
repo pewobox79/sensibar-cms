@@ -145,6 +145,29 @@ export interface CustomerDataTestingQuestionResult
   };
 }
 
+export interface ElementsBorderStyle extends Struct.ComponentSchema {
+  collectionName: 'components_elements_border_styles';
+  info: {
+    displayName: 'borderStyle';
+  };
+  attributes: {
+    color: Schema.Attribute.Component<'elements.color-source', false>;
+    position: Schema.Attribute.Enumeration<
+      [
+        'none',
+        'full',
+        'left',
+        'bottom',
+        'right',
+        'top',
+        'leftTop',
+        'rightBottom',
+      ]
+    > &
+      Schema.Attribute.DefaultTo<'none'>;
+  };
+}
+
 export interface ElementsColorSource extends Struct.ComponentSchema {
   collectionName: 'components_elements_color_sources';
   info: {
@@ -190,7 +213,9 @@ export interface ElementsGridItem extends Struct.ComponentSchema {
   };
   attributes: {
     active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    border: Schema.Attribute.Component<'elements.border-style', false>;
     description: Schema.Attribute.Blocks;
+    hasIcon: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.Component<'elements.link', false>;
     title: Schema.Attribute.String;
@@ -305,6 +330,7 @@ declare module '@strapi/strapi' {
       'customer-data.personal-data': CustomerDataPersonalData;
       'customer-data.physical-condition': CustomerDataPhysicalCondition;
       'customer-data.testing-question-result': CustomerDataTestingQuestionResult;
+      'elements.border-style': ElementsBorderStyle;
       'elements.color-source': ElementsColorSource;
       'elements.event-redeem-details': ElementsEventRedeemDetails;
       'elements.files': ElementsFiles;

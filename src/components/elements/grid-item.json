@@ -23,10 +23,39 @@
     },
     "image": {
       "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "hasIcon"
+            },
+            true
+          ]
+        }
+      },
       "multiple": false,
       "allowedTypes": [
         "images"
       ]
+    },
+    "hasIcon": {
+      "type": "boolean",
+      "default": true
+    },
+    "border": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "hasIcon"
+            },
+            false
+          ]
+        }
+      },
+      "component": "elements.border-style",
+      "repeatable": false
     }
   }
 }

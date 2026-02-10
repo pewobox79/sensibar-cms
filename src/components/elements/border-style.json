@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_elements_border_styles",
+  "info": {
+    "displayName": "borderStyle"
+  },
+  "options": {},
+  "attributes": {
+    "position": {
+      "type": "enumeration",
+      "default": "none",
+      "enum": [
+        "none",
+        "full",
+        "left",
+        "bottom",
+        "right",
+        "top",
+        "leftTop",
+        "rightBottom"
+      ]
+    },
+    "color": {
+      "type": "component",
+      "component": "elements.color-source",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}
