@@ -756,6 +756,42 @@ export interface ApiNavigationNavigation extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiPagePage extends Struct.CollectionTypeSchema {
+  collectionName: 'pages';
+  info: {
+    displayName: 'page';
+    pluralName: 'pages';
+    singularName: 'page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    internal: Schema.Attribute.String;
+    items: Schema.Attribute.DynamicZone<
+      [
+        'elements.text-block',
+        'elements.jumbotron',
+        'elements.grid-section',
+        'components.text-img-grid',
+        'components.quote-section',
+        'components.text-img-component',
+      ]
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiQuestioningPageQuestioningPage
   extends Struct.SingleTypeSchema {
   collectionName: 'questioning_pages';
@@ -1466,6 +1502,7 @@ declare module '@strapi/strapi' {
       'api::header-layout.header-layout': ApiHeaderLayoutHeaderLayout;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::navigation.navigation': ApiNavigationNavigation;
+      'api::page.page': ApiPagePage;
       'api::questioning-page.questioning-page': ApiQuestioningPageQuestioningPage;
       'api::testing-question.testing-question': ApiTestingQuestionTestingQuestion;
       'api::treatment-note.treatment-note': ApiTreatmentNoteTreatmentNote;

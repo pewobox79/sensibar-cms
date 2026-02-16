@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "singularName": "page",
+    "pluralName": "pages",
+    "displayName": "page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "internal": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "items": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.text-block",
+        "elements.jumbotron",
+        "elements.grid-section",
+        "components.text-img-grid",
+        "components.quote-section",
+        "components.text-img-component"
+      ]
+    }
+  }
+}
