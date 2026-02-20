@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_components_reference_sections",
+  "info": {
+    "displayName": "referenceSection"
+  },
+  "options": {},
+  "attributes": {
+    "internalName": {
+      "type": "string",
+      "default": "hier werden die referenzen ausgegeben"
+    },
+    "title": {
+      "type": "string"
+    },
+    "bgColor": {
+      "type": "component",
+      "component": "elements.color-source",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

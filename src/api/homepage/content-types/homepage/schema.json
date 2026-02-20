@@ -30,7 +30,8 @@
         "components.quote-section",
         "components.text-img-grid",
         "components.contact",
-        "components.kontakt-formular"
+        "components.kontakt-formular",
+        "components.reference-section"
       ]
     }
   }

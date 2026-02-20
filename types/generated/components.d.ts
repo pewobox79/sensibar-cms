@@ -42,6 +42,19 @@ export interface ComponentsQuoteSection extends Struct.ComponentSchema {
   };
 }
 
+export interface ComponentsReferenceSection extends Struct.ComponentSchema {
+  collectionName: 'components_components_reference_sections';
+  info: {
+    displayName: 'referenceSection';
+  };
+  attributes: {
+    bgColor: Schema.Attribute.Component<'elements.color-source', false>;
+    internalName: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'hier werden die referenzen ausgegeben'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ComponentsTextImgComponent extends Struct.ComponentSchema {
   collectionName: 'components_components_text_img_components';
   info: {
@@ -323,6 +336,7 @@ declare module '@strapi/strapi' {
       'components.contact': ComponentsContact;
       'components.kontakt-formular': ComponentsKontaktFormular;
       'components.quote-section': ComponentsQuoteSection;
+      'components.reference-section': ComponentsReferenceSection;
       'components.text-img-component': ComponentsTextImgComponent;
       'components.text-img-grid': ComponentsTextImgGrid;
       'customer-data.address-data': CustomerDataAddressData;

@@ -711,6 +711,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
         'components.text-img-grid',
         'components.contact',
         'components.kontakt-formular',
+        'components.reference-section',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -821,6 +822,35 @@ export interface ApiQuestioningPageQuestioningPage
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiReferenceReference extends Struct.CollectionTypeSchema {
+  collectionName: 'references';
+  info: {
+    displayName: 'reference';
+    pluralName: 'references';
+    singularName: 'reference';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::reference.reference'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    referenz: Schema.Attribute.Blocks;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    wer: Schema.Attribute.String;
   };
 }
 
@@ -1504,6 +1534,7 @@ declare module '@strapi/strapi' {
       'api::navigation.navigation': ApiNavigationNavigation;
       'api::page.page': ApiPagePage;
       'api::questioning-page.questioning-page': ApiQuestioningPageQuestioningPage;
+      'api::reference.reference': ApiReferenceReference;
       'api::testing-question.testing-question': ApiTestingQuestionTestingQuestion;
       'api::treatment-note.treatment-note': ApiTreatmentNoteTreatmentNote;
       'api::workshop-registration.workshop-registration': ApiWorkshopRegistrationWorkshopRegistration;
