@@ -12,6 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "format": {
+      "type": "enumeration",
+      "enum": [
+        "Workshop",
+        "Vortrag"
+      ]
+    },
     "title": {
       "type": "string"
     },

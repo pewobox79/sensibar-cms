@@ -983,6 +983,7 @@ export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::event-ticket.event-ticket'
     >;
+    format: Schema.Attribute.Enumeration<['Workshop', 'Vortrag']>;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     link: Schema.Attribute.Component<'elements.link', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
