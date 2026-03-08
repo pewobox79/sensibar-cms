@@ -87,17 +87,22 @@
         "confirmed"
       ]
     },
-    "seoData": {
+    "speaker": {
       "type": "component",
-      "component": "elements.seo",
-      "repeatable": false,
-      "required": false
+      "component": "elements.speaker",
+      "repeatable": true
     },
     "event_tickets": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::event-ticket.event-ticket",
       "mappedBy": "workshop"
+    },
+    "seoData": {
+      "type": "component",
+      "component": "elements.seo",
+      "repeatable": false,
+      "required": false
     }
   }
 }

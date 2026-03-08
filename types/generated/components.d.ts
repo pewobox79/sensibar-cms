@@ -316,6 +316,18 @@ export interface ElementsSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsSpeaker extends Struct.ComponentSchema {
+  collectionName: 'components_elements_speakers';
+  info: {
+    displayName: 'speaker';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Schema.Attribute.String;
+    quote: Schema.Attribute.Text;
+  };
+}
+
 export interface ElementsTextBlock extends Struct.ComponentSchema {
   collectionName: 'components_elements_text_blocks';
   info: {
@@ -355,6 +367,7 @@ declare module '@strapi/strapi' {
       'elements.logo': ElementsLogo;
       'elements.payment-details': ElementsPaymentDetails;
       'elements.seo': ElementsSeo;
+      'elements.speaker': ElementsSpeaker;
       'elements.text-block': ElementsTextBlock;
     }
   }

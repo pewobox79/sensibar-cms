@@ -995,6 +995,7 @@ export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
     location: Schema.Attribute.Component<'customer-data.address-data', false>;
     publishedAt: Schema.Attribute.DateTime;
     seoData: Schema.Attribute.Component<'elements.seo', false>;
+    speaker: Schema.Attribute.Component<'elements.speaker', true>;
     title: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<['online', 'hybrid', 'inPerson']>;
     uid: Schema.Attribute.UID<'title'>;
