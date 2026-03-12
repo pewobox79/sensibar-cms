@@ -31,6 +31,9 @@
     "workshopTimeEnd": {
       "type": "time"
     },
+    "workshopPrice": {
+      "type": "decimal"
+    },
     "image": {
       "type": "media",
       "multiple": false,

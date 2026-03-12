@@ -304,6 +304,17 @@ export interface ElementsPaymentDetails extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsRightOfWithdrawl extends Struct.ComponentSchema {
+  collectionName: 'components_elements_right_of_withdrawls';
+  info: {
+    displayName: 'rightOfWithdrawl';
+  };
+  attributes: {
+    date: Schema.Attribute.String;
+    hasAccepted: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
 export interface ElementsSeo extends Struct.ComponentSchema {
   collectionName: 'components_elements_seos';
   info: {
@@ -366,6 +377,7 @@ declare module '@strapi/strapi' {
       'elements.link': ElementsLink;
       'elements.logo': ElementsLogo;
       'elements.payment-details': ElementsPaymentDetails;
+      'elements.right-of-withdrawl': ElementsRightOfWithdrawl;
       'elements.seo': ElementsSeo;
       'elements.speaker': ElementsSpeaker;
       'elements.text-block': ElementsTextBlock;

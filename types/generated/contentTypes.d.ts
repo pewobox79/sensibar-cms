@@ -581,6 +581,35 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCounterCounter extends Struct.CollectionTypeSchema {
+  collectionName: 'counters';
+  info: {
+    displayName: 'counter';
+    pluralName: 'counters';
+    singularName: 'counter';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    key: Schema.Attribute.String & Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::counter.counter'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    value: Schema.Attribute.Integer;
+  };
+}
+
 export interface ApiEventTicketEventTicket extends Struct.CollectionTypeSchema {
   collectionName: 'event_tickets';
   info: {
@@ -787,6 +816,47 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPaymentPayment extends Struct.CollectionTypeSchema {
+  collectionName: 'payments';
+  info: {
+    displayName: 'payment';
+    pluralName: 'payments';
+    singularName: 'payment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    billingAddress: Schema.Attribute.Component<
+      'customer-data.address-data',
+      false
+    >;
+    contact: Schema.Attribute.Relation<'oneToOne', 'api::contact.contact'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    event_ticket: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::event-ticket.event-ticket'
+    >;
+    invoiceNumber: Schema.Attribute.String & Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::payment.payment'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    rightOfWithdrawal: Schema.Attribute.Component<
+      'elements.right-of-withdrawl',
+      false
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1007,6 +1077,7 @@ export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::workshop-registration.workshop-registration'
     >;
+    workshopPrice: Schema.Attribute.Decimal;
     workshopTimeEnd: Schema.Attribute.Time;
     workshopTimeStart: Schema.Attribute.Time;
     ws_status: Schema.Attribute.Enumeration<
@@ -1529,12 +1600,14 @@ declare module '@strapi/strapi' {
       'api::basic-page.basic-page': ApiBasicPageBasicPage;
       'api::coach.coach': ApiCoachCoach;
       'api::contact.contact': ApiContactContact;
+      'api::counter.counter': ApiCounterCounter;
       'api::event-ticket.event-ticket': ApiEventTicketEventTicket;
       'api::files-upload.files-upload': ApiFilesUploadFilesUpload;
       'api::header-layout.header-layout': ApiHeaderLayoutHeaderLayout;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::navigation.navigation': ApiNavigationNavigation;
       'api::page.page': ApiPagePage;
+      'api::payment.payment': ApiPaymentPayment;
       'api::questioning-page.questioning-page': ApiQuestioningPageQuestioningPage;
       'api::reference.reference': ApiReferenceReference;
       'api::testing-question.testing-question': ApiTestingQuestionTestingQuestion;

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_elements_right_of_withdrawls",
+  "info": {
+    "displayName": "rightOfWithdrawl"
+  },
+  "options": {},
+  "attributes": {
+    "hasAccepted": {
+      "type": "boolean",
+      "default": false
+    },
+    "date": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

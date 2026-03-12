@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "singularName": "payment",
+    "pluralName": "payments",
+    "displayName": "payment"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "event_ticket": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::event-ticket.event-ticket"
+    },
+    "contact": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::contact.contact"
+    },
+    "billingAddress": {
+      "type": "component",
+      "component": "customer-data.address-data",
+      "repeatable": false
+    },
+    "rightOfWithdrawal": {
+      "type": "component",
+      "component": "elements.right-of-withdrawl",
+      "repeatable": false
+    },
+    "invoiceNumber": {
+      "type": "string",
+      "unique": true
+    }
+  }
+}
