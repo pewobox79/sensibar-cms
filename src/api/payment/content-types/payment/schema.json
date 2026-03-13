@@ -34,6 +34,15 @@
     "invoiceNumber": {
       "type": "string",
       "unique": true
+    },
+    "transaction": {
+      "type": "component",
+      "component": "elements.transaction",
+      "repeatable": false
+    },
+    "billing": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

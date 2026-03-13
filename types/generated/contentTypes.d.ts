@@ -631,10 +631,7 @@ export interface ApiEventTicketEventTicket extends Struct.CollectionTypeSchema {
       'api::event-ticket.event-ticket'
     > &
       Schema.Attribute.Private;
-    paymentDetails: Schema.Attribute.Component<
-      'elements.payment-details',
-      false
-    >;
+    payment: Schema.Attribute.Relation<'oneToOne', 'api::payment.payment'>;
     publishedAt: Schema.Attribute.DateTime;
     redeemStatus: Schema.Attribute.Component<
       'elements.event-redeem-details',
@@ -833,6 +830,7 @@ export interface ApiPaymentPayment extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    billing: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     billingAddress: Schema.Attribute.Component<
       'customer-data.address-data',
       false
@@ -857,6 +855,7 @@ export interface ApiPaymentPayment extends Struct.CollectionTypeSchema {
       'elements.right-of-withdrawl',
       false
     >;
+    transaction: Schema.Attribute.Component<'elements.transaction', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

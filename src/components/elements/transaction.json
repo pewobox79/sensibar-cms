@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_elements_transactions",
+  "info": {
+    "displayName": "transaction"
+  },
+  "options": {},
+  "attributes": {
+    "provider": {
+      "type": "enumeration",
+      "default": "paypal",
+      "enum": [
+        "paypal",
+        "mastercard",
+        "banktransfer"
+      ]
+    },
+    "transactionId": {
+      "type": "string"
+    },
+    "transactionState": {
+      "type": "string"
+    },
+    "transactionDate": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

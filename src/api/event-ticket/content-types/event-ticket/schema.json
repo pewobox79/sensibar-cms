@@ -27,15 +27,15 @@
       "target": "api::workshop.workshop",
       "inversedBy": "event_tickets"
     },
-    "paymentDetails": {
-      "type": "component",
-      "component": "elements.payment-details",
-      "repeatable": false
-    },
     "redeemStatus": {
       "type": "component",
       "component": "elements.event-redeem-details",
       "repeatable": false
+    },
+    "payment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::payment.payment"
     }
   }
 }

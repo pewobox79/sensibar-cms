@@ -64,6 +64,7 @@ export interface ComponentsTextImgComponent extends Struct.ComponentSchema {
   attributes: {
     bgColor: Schema.Attribute.Component<'elements.color-source', false>;
     hashId: Schema.Attribute.String;
+    hasPolaroid: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     internalName: Schema.Attribute.String;
     link: Schema.Attribute.Component<'elements.link', false>;
@@ -304,6 +305,19 @@ export interface ElementsPaymentDetails extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsPrice extends Struct.ComponentSchema {
+  collectionName: 'components_elements_prices';
+  info: {
+    displayName: 'price';
+  };
+  attributes: {
+    currency: Schema.Attribute.Enumeration<['EUR', 'USD']> &
+      Schema.Attribute.DefaultTo<'EUR'>;
+    grossPrice: Schema.Attribute.String;
+    netPrice: Schema.Attribute.String;
+  };
+}
+
 export interface ElementsRightOfWithdrawl extends Struct.ComponentSchema {
   collectionName: 'components_elements_right_of_withdrawls';
   info: {
@@ -353,6 +367,22 @@ export interface ElementsTextBlock extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsTransaction extends Struct.ComponentSchema {
+  collectionName: 'components_elements_transactions';
+  info: {
+    displayName: 'transaction';
+  };
+  attributes: {
+    provider: Schema.Attribute.Enumeration<
+      ['paypal', 'mastercard', 'banktransfer']
+    > &
+      Schema.Attribute.DefaultTo<'paypal'>;
+    transactionDate: Schema.Attribute.String;
+    transactionId: Schema.Attribute.String;
+    transactionState: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -377,10 +407,12 @@ declare module '@strapi/strapi' {
       'elements.link': ElementsLink;
       'elements.logo': ElementsLogo;
       'elements.payment-details': ElementsPaymentDetails;
+      'elements.price': ElementsPrice;
       'elements.right-of-withdrawl': ElementsRightOfWithdrawl;
       'elements.seo': ElementsSeo;
       'elements.speaker': ElementsSpeaker;
       'elements.text-block': ElementsTextBlock;
+      'elements.transaction': ElementsTransaction;
     }
   }
 }

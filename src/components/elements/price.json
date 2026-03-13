@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_elements_prices",
+  "info": {
+    "displayName": "price"
+  },
+  "options": {},
+  "attributes": {
+    "netPrice": {
+      "type": "string"
+    },
+    "grossPrice": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "enumeration",
+      "default": "EUR",
+      "enum": [
+        "EUR",
+        "USD"
+      ]
+    }
+  },
+  "config": {}
+}

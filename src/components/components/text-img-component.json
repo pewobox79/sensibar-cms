@@ -8,8 +8,8 @@
   "attributes": {
     "text": {
       "type": "component",
-      "repeatable": false,
-      "component": "elements.text-block"
+      "component": "elements.text-block",
+      "repeatable": false
     },
     "image": {
       "type": "media",
@@ -27,13 +27,13 @@
     },
     "link": {
       "type": "component",
-      "repeatable": false,
-      "component": "elements.link"
+      "component": "elements.link",
+      "repeatable": false
     },
     "bgColor": {
       "type": "component",
-      "repeatable": false,
-      "component": "elements.color-source"
+      "component": "elements.color-source",
+      "repeatable": false
     },
     "textLeft": {
       "type": "boolean",
@@ -42,6 +42,10 @@
     "hashId": {
       "type": "string",
       "required": false
+    },
+    "hasPolaroid": {
+      "type": "boolean",
+      "default": true
     }
   }
 }
