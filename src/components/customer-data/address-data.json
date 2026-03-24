@@ -14,12 +14,12 @@
     },
     "country": {
       "type": "enumeration",
+      "default": "Deutschland",
       "enum": [
         "Deutschland",
-        "Österrreich",
+        "Österreich",
         "Schweiz"
-      ],
-      "default": "Deutschland"
+      ]
     },
     "streetNumber": {
       "type": "string"

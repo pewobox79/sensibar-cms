@@ -43,6 +43,11 @@
     "billing": {
       "type": "boolean",
       "default": false
+    },
+    "validation": {
+      "type": "component",
+      "component": "elements.validation",
+      "repeatable": false
     }
   }
 }

@@ -101,7 +101,7 @@ export interface CustomerDataAddressData extends Struct.ComponentSchema {
   attributes: {
     city: Schema.Attribute.String;
     country: Schema.Attribute.Enumeration<
-      ['Deutschland', '\u00D6sterrreich', 'Schweiz']
+      ['Deutschland', '\u00D6sterreich', 'Schweiz']
     > &
       Schema.Attribute.DefaultTo<'Deutschland'>;
     street: Schema.Attribute.String;
@@ -373,6 +373,7 @@ export interface ElementsTransaction extends Struct.ComponentSchema {
     displayName: 'transaction';
   };
   attributes: {
+    payerId: Schema.Attribute.String;
     provider: Schema.Attribute.Enumeration<
       ['paypal', 'mastercard', 'banktransfer']
     > &
@@ -380,6 +381,17 @@ export interface ElementsTransaction extends Struct.ComponentSchema {
     transactionDate: Schema.Attribute.String;
     transactionId: Schema.Attribute.String;
     transactionState: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsValidation extends Struct.ComponentSchema {
+  collectionName: 'components_elements_validations';
+  info: {
+    displayName: 'validation';
+  };
+  attributes: {
+    hasValidated: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    validationDate: Schema.Attribute.DateTime;
   };
 }
 
@@ -413,6 +425,7 @@ declare module '@strapi/strapi' {
       'elements.speaker': ElementsSpeaker;
       'elements.text-block': ElementsTextBlock;
       'elements.transaction': ElementsTransaction;
+      'elements.validation': ElementsValidation;
     }
   }
 }

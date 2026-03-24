@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_elements_validations",
+  "info": {
+    "displayName": "validation"
+  },
+  "options": {},
+  "attributes": {
+    "hasValidated": {
+      "type": "boolean",
+      "default": false
+    },
+    "validationDate": {
+      "type": "datetime"
+    }
+  },
+  "config": {}
+}

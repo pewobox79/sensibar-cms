@@ -22,6 +22,9 @@
     },
     "transactionDate": {
       "type": "string"
+    },
+    "payerId": {
+      "type": "string"
     }
   },
   "config": {}
