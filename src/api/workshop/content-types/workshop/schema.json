@@ -79,6 +79,16 @@
     },
     "location": {
       "type": "component",
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "type"
+            },
+            "online"
+          ]
+        }
+      },
       "component": "customer-data.address-data",
       "repeatable": false
     },
