@@ -27,6 +27,19 @@ export interface ComponentsKontaktFormular extends Struct.ComponentSchema {
   };
 }
 
+export interface ComponentsLogoSection extends Struct.ComponentSchema {
+  collectionName: 'components_components_logo_sections';
+  info: {
+    displayName: 'logoSection';
+  };
+  attributes: {
+    bgColor: Schema.Attribute.Component<'elements.color-source', false>;
+    internalName: Schema.Attribute.String;
+    logos: Schema.Attribute.Component<'elements.logo', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ComponentsQuoteSection extends Struct.ComponentSchema {
   collectionName: 'components_components_quote_sections';
   info: {
@@ -285,6 +298,8 @@ export interface ElementsLogo extends Struct.ComponentSchema {
   };
   attributes: {
     alt: Schema.Attribute.String;
+    hasLink: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    href: Schema.Attribute.String;
     src: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     target: Schema.Attribute.Enumeration<['_self', '_blank']>;
   };
@@ -400,6 +415,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'components.contact': ComponentsContact;
       'components.kontakt-formular': ComponentsKontaktFormular;
+      'components.logo-section': ComponentsLogoSection;
       'components.quote-section': ComponentsQuoteSection;
       'components.reference-section': ComponentsReferenceSection;
       'components.text-img-component': ComponentsTextImgComponent;

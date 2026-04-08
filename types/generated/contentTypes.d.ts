@@ -738,6 +738,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
         'components.contact',
         'components.kontakt-formular',
         'components.reference-section',
+        'components.logo-section',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

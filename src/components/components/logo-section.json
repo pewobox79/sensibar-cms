@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_components_logo_sections",
+  "info": {
+    "displayName": "logoSection"
+  },
+  "options": {},
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "bgColor": {
+      "type": "component",
+      "component": "elements.color-source",
+      "repeatable": false
+    },
+    "title": {
+      "type": "string"
+    },
+    "logos": {
+      "type": "component",
+      "component": "elements.logo",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

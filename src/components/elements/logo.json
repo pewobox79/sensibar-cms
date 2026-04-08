@@ -6,24 +6,51 @@
   "options": {},
   "attributes": {
     "src": {
+      "type": "media",
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "hasLink": {
+      "type": "boolean",
+      "default": false
     },
     "alt": {
       "type": "string"
     },
     "target": {
       "type": "enumeration",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "hasLink"
+            },
+            true
+          ]
+        }
+      },
       "enum": [
         "_self",
         "_blank"
       ]
+    },
+    "href": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "hasLink"
+            },
+            true
+          ]
+        }
+      }
     }
   }
 }

@@ -31,7 +31,8 @@
         "components.text-img-grid",
         "components.contact",
         "components.kontakt-formular",
-        "components.reference-section"
+        "components.reference-section",
+        "components.logo-section"
       ]
     }
   }
