@@ -15,7 +15,8 @@
       "type": "string"
     },
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "targetField": "internal"
     },
     "items": {
       "type": "dynamiczone",
