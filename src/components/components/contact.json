@@ -29,11 +29,6 @@
       "component": "elements.link",
       "repeatable": true
     },
-    "legalLinks": {
-      "type": "component",
-      "component": "elements.link",
-      "repeatable": true
-    },
     "bgColor": {
       "type": "component",
       "component": "elements.color-source",

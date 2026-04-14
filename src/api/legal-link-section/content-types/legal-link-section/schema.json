@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "legal_link_sections",
+  "info": {
+    "singularName": "legal-link-section",
+    "pluralName": "legal-link-sections",
+    "displayName": "LegalLinkSection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "link": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": true
+    }
+  }
+}

@@ -756,6 +756,35 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiLegalLinkSectionLegalLinkSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'legal_link_sections';
+  info: {
+    displayName: 'LegalLinkSection';
+    pluralName: 'legal-link-sections';
+    singularName: 'legal-link-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    link: Schema.Attribute.Component<'elements.link', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::legal-link-section.legal-link-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiNavigationNavigation extends Struct.SingleTypeSchema {
   collectionName: 'navigations';
   info: {
@@ -1606,6 +1635,7 @@ declare module '@strapi/strapi' {
       'api::files-upload.files-upload': ApiFilesUploadFilesUpload;
       'api::header-layout.header-layout': ApiHeaderLayoutHeaderLayout;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::legal-link-section.legal-link-section': ApiLegalLinkSectionLegalLinkSection;
       'api::navigation.navigation': ApiNavigationNavigation;
       'api::page.page': ApiPagePage;
       'api::payment.payment': ApiPaymentPayment;

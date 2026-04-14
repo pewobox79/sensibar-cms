@@ -10,7 +10,6 @@ export interface ComponentsContact extends Struct.ComponentSchema {
     contactData: Schema.Attribute.Blocks;
     hashId: Schema.Attribute.String;
     internalName: Schema.Attribute.String;
-    legalLinks: Schema.Attribute.Component<'elements.link', true>;
     logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     socialLinks: Schema.Attribute.Component<'elements.link', true>;
   };
