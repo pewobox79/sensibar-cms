@@ -271,6 +271,7 @@ export interface ElementsJumbotron extends Struct.ComponentSchema {
     bgColor: Schema.Attribute.Component<'elements.color-source', false>;
     Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     text: Schema.Attribute.Blocks;
+    textBoxLeft: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
   };
 }
 

@@ -8,6 +8,10 @@
     "text": {
       "type": "blocks"
     },
+    "textBoxLeft": {
+      "type": "boolean",
+      "default": true
+    },
     "Image": {
       "type": "media",
       "multiple": false,
