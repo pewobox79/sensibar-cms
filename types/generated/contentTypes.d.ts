@@ -430,6 +430,35 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAdventCalendarAdventCalendar
+  extends Struct.SingleTypeSchema {
+  collectionName: 'advent_calendars';
+  info: {
+    displayName: 'adventCalendar';
+    pluralName: 'advent-calendars';
+    singularName: 'advent-calendar';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    items: Schema.Attribute.Component<'components.advent-calendar-card', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::advent-calendar.advent-calendar'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAnswersRatingAnswersRating
   extends Struct.CollectionTypeSchema {
   collectionName: 'answers_ratings';
@@ -1626,6 +1655,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::advent-calendar.advent-calendar': ApiAdventCalendarAdventCalendar;
       'api::answers-rating.answers-rating': ApiAnswersRatingAnswersRating;
       'api::basic-page.basic-page': ApiBasicPageBasicPage;
       'api::coach.coach': ApiCoachCoach;

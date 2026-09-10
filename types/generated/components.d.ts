@@ -1,5 +1,18 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ComponentsAdventCalendarCard extends Struct.ComponentSchema {
+  collectionName: 'components_components_advent_calendar_cards';
+  info: {
+    displayName: 'adventCalendarCard';
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks;
+    isText: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    title: Schema.Attribute.String;
+    video_image: Schema.Attribute.Media<'videos' | 'images'>;
+  };
+}
+
 export interface ComponentsContact extends Struct.ComponentSchema {
   collectionName: 'components_components_contacts';
   info: {
@@ -413,6 +426,7 @@ export interface ElementsValidation extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'components.advent-calendar-card': ComponentsAdventCalendarCard;
       'components.contact': ComponentsContact;
       'components.kontakt-formular': ComponentsKontaktFormular;
       'components.logo-section': ComponentsLogoSection;

@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_components_advent_calendar_cards",
+  "info": {
+    "displayName": "adventCalendarCard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "isText": {
+      "type": "boolean",
+      "default": true
+    },
+    "content": {
+      "type": "blocks",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isText"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "video_image": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isText"
+            },
+            false
+          ]
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "videos",
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

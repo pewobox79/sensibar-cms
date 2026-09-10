@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "advent_calendars",
+  "info": {
+    "singularName": "advent-calendar",
+    "pluralName": "advent-calendars",
+    "displayName": "adventCalendar"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "component": "components.advent-calendar-card",
+      "repeatable": true
+    }
+  }
+}
