@@ -1,4 +1,4 @@
-import type { Schema } from '@strapi/strapi';
+import type { Schema, Struct } from '@strapi/strapi';
 
 export interface ComponentsAdventCalendarCard extends Struct.ComponentSchema {
   collectionName: 'components_components_advent_calendar_cards';
@@ -7,9 +7,10 @@ export interface ComponentsAdventCalendarCard extends Struct.ComponentSchema {
   };
   attributes: {
     content: Schema.Attribute.Blocks;
+    image: Schema.Attribute.Media<'images'>;
     isText: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     title: Schema.Attribute.String;
-    video_image: Schema.Attribute.Media<'videos' | 'images'>;
+    youtube: Schema.Attribute.String;
   };
 }
 

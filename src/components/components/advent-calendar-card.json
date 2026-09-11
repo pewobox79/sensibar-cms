@@ -25,7 +25,7 @@
         }
       }
     },
-    "video_image": {
+    "image": {
       "type": "media",
       "conditions": {
         "visible": {
@@ -39,9 +39,21 @@
       },
       "multiple": false,
       "allowedTypes": [
-        "videos",
         "images"
       ]
+    },
+    "youtube": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isText"
+            },
+            false
+          ]
+        }
+      }
     }
   },
   "config": {}
