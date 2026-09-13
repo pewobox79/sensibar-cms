@@ -1,5 +1,8 @@
 import type {Core} from '@strapi/strapi';
 
+type AdventCalendarReminder = {
+    email?: string | null;
+};
 export default {
     adventCalendarDailyReminder: {
         task: async ({strapi}: { strapi: Core.Strapi }) => {
@@ -27,7 +30,7 @@ export default {
                 pagination: {
                     pageSize: 1000,
                 },
-            });
+            }) as AdventCalendarReminder[];
 
             strapi.log.info(`Advent calendar reminders found: ${reminders.length}`);
 
