@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "advent_calendar_reminders",
+  "info": {
+    "singularName": "advent-calendar-reminder",
+    "pluralName": "advent-calendar-reminders",
+    "displayName": "adventCalendarReminder"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email",
+      "unique": true
+    },
+    "doiAccepted": {
+      "type": "boolean"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

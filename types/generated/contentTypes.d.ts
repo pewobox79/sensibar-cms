@@ -1,4 +1,4 @@
-import type { Schema } from '@strapi/strapi';
+import type { Schema, Struct } from '@strapi/strapi';
 
 export interface AdminApiToken extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_api_tokens';
@@ -427,6 +427,37 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     username: Schema.Attribute.String;
+  };
+}
+
+export interface ApiAdventCalendarReminderAdventCalendarReminder
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'advent_calendar_reminders';
+  info: {
+    displayName: 'adventCalendarReminder';
+    pluralName: 'advent-calendar-reminders';
+    singularName: 'advent-calendar-reminder';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    doiAccepted: Schema.Attribute.Boolean;
+    email: Schema.Attribute.Email & Schema.Attribute.Unique;
+    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::advent-calendar-reminder.advent-calendar-reminder'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1655,6 +1686,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::advent-calendar-reminder.advent-calendar-reminder': ApiAdventCalendarReminderAdventCalendarReminder;
       'api::advent-calendar.advent-calendar': ApiAdventCalendarAdventCalendar;
       'api::answers-rating.answers-rating': ApiAnswersRatingAnswersRating;
       'api::basic-page.basic-page': ApiBasicPageBasicPage;
