@@ -30,7 +30,12 @@ export default {
             });
 
             strapi.log.info(`Advent calendar reminders found: ${reminders.length}`);
-            console.log('reminders', reminders);
+
+            if (reminders.length === 0) {
+                strapi.log.info('No active reminders found.');
+                return;
+            }
+
             for (const reminder of reminders) {
                 if (!reminder.email) {
                     continue;
