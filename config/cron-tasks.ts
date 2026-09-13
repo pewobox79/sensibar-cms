@@ -69,7 +69,7 @@ ${ process.env.ADVENT_CALENDAR_URL }
             }
         },
         options: {
-            rule: '* * * * *',
+            rule: '0 8 * * *',
             tz: 'Europe/Berlin',
         },
     },
