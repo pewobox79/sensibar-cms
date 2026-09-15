@@ -1,4 +1,4 @@
-import type { Schema } from '@strapi/strapi';
+import type { Schema, Struct } from '@strapi/strapi';
 
 export interface AdminApiToken extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_api_tokens';
@@ -442,12 +442,14 @@ export interface ApiAdventCalendarReminderAdventCalendarReminder
     draftAndPublish: true;
   };
   attributes: {
+    acceptedPolicy: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     doiAccepted: Schema.Attribute.Boolean;
     email: Schema.Attribute.Email & Schema.Attribute.Unique;
-    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
